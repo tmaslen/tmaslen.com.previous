@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+
+<head profile="http://dublincore.org/documents/dcq-html/">
+<title>flipBook widget for Glow</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<style type="text/css">
+body {background: #eee; font-family: Arial, Helvetica, sans-serif; margin: 0;}
+#container {margin: 0 auto; width: 964px;}
+h1 {background: #c5c6c8; color: #eee; font-family: 'Gill Sans', Arial, Helvetica, sans-serif; font-size: 3em; margin: 0; padding: 50px; text-align: center; text-transform: uppercase;}
+#main {overflow: hidden; padding: 50px 0; zoom: 1;}
+h2 {clear: left; color: #c5c6c8; font-size: 2em; margin: 0 0 10px 0; padding: 50px 0 0; text-transform: uppercase;}
+h3 {clear: left; color: #C5C6C8; line-height: 1.5; margin: 0; padding: 0; text-transform: uppercase;}
+p {clear: left; color: #555; font-size: 0.8em; line-height: 2; margin: 0 0 10px 0; padding: 0; width: 561px;}
+li {color: #555; font-size: 0.8em; line-height: 2; width: 400px;}
+#side_panel {display: inline; float: right; font-size: 0.9em; margin: 50px 20px 0 0; width: 300px;}
+#side_panel p {width: auto;}
+#side_panel li {padding: 0 0.5em; width: auto;}
+#side_panel .download {color: #fff; text-align: center; width: auto;}
+#side_panel .download a {background: #e7be01; color: #fff; display: block; padding: 1em; text-decoration: none;}
+#side_panel .download a:hover {background: #cccc33;}
+#side_panel .download a span {display: block; font-size: 1.5em; font-weight: bold; line-height: 1; text-decoration: underline; text-transform: uppercase;}
+#side_panel ul {margin-top: 10px;}
+
+#footer {overflow: hidden; text-align: center;}
+#footer p {color: #fff; font-size: 1.5em; margin: -50px 0 0; width: auto;}
+
+h1 span {color: #fff; display: block; font-size: 2em; line-height: 1;}
+
+.intro {background: #fdd000;  font-size: 1.7em; overflow: hidden; padding: 20px; zoom: 1;}
+.intro p {color: #fff; float: left; line-height: 1.75; width: 600px;}
+.intro p a {color: #fff;}
+.intro ul {border: 40px solid #e7be01; float: right; width: 220px;}
+.demo {background: #e7be01; border: 40px solid #e7be01; margin-bottom: 20px;}
+#demo_one {width: 481px;}
+#demo_two .flipBook li span {background: #000; bottom: 0; display: block; color: #fff; font-size: 1.3em; font-weight: normal; padding: 14px; position: absolute; text-decoration: none; width: 546px;}
+#demo_two .flipBook li a .title {cursor: pointer;}
+#demo_two .flipBook li a img {border: none;}
+#cp {margin-top: 40px; text-align: center;}
+
+pre {background: #C5C6C8; color: #fff; line-height: 2; margin-top: 0; padding: 0.5em; width: 550px;}
+
+
+h1 {-moz-border-radius: 0 0 5px 5px; -webkit-border-radius: 0 0 5px 5px; border-radius: 0 0 5px 5px;}
+h1 {background: -moz-linear-gradient(center top, #d9d9d9, #c5c6c8);  background: -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#c5c6c8));}
+pre, .intro, .demo, .download a, .flipBook {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
+#footer h1 {-moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; border-radius: 5px 5px 0 0;}
+
+.intro {background: -moz-linear-gradient(center top, #fce164, #fdd000); background: -webkit-gradient(linear, left top, left bottom, from(#fce164), to(#fdd000));}
+
+</style>
+<script src="http://node1.bbcimg.co.uk/glow/glow/1.7.0/core/core.js" type="text/javascript"></script>
+<script type="text/javascript" src="flipBook.js"></script>
+<script type="text/javascript" src="getFlickrData.js"></script> 
+<script type="text/javascript" src="home.js"></script> 
+</head>
+<body>
+
+
+<div id="container">
+
+<h1><span>FlipBook</span> Widget for Glow</h1>
+
+<div id="main">
+
+<div class="intro">
+	<p>FlipBook is a widget to be used with <a href="http://www.bbc.co.uk/glow/">Glow, the BBC's Javascript library</a>.  It gives you a fun way of interacting with many images when you need to display them in a confined space.</p>
+</div>
+
+<div id="side_panel">
+
+	<p class="download">
+		<a href="flipBook.js"><span>Download FlipBook</span>4Kb - uncompressed and ungzipped</a>
+	</p>
+
+	<p>FlipBook is built to high industry standards:</p>
+
+	<ul>
+		<li>Screen reader friendly: FlipBook doesn't change or add to your HTML.</li>
+		<li>Full keyboard access: Each item in the widget is added to the tab index in the page, so you can interact with it using a keyboard.</li>
+		<li>XHTML valid: FlipBook will not invalidate your page.</li>
+		<li>Pure JavaScript: You only have to include one JavaScript file so you don't have to worry about the CSS being applied when JavaScript is disabled.</li>
+		<li>Compliant with BBC Glow's level 1 browser support (supports IE6!).</li>
+	</ul>
+
+</div>
+
+<h2>Getting Started</h2>
+<p>You will need to have copies of flipBook.js and Glow installed locally.  All you need to do is include them in the page like this:</p>
+
+<h3>JavaScript</h3>
+<pre><code>&lt;script type="text/javascript" src="js/glow/core.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/flipBook.js"&gt;&lt;/script&gt;</code></pre>
+
+<h2>Demo one: A simple flipBook</h2>
+<p>Move your mouse over the images to see them expand.</p>
+
+<div id="demo_one" class="demo"></div>
+
+<h3>HTML</h3>
+<pre><code>&lt;div id="demo_one"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;img src="image_01.jpg" 
+				height="220" width="292" /&gt;
+		&lt;/li&gt;
+		...
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>JavaScript</h3>
+<pre><code class="js">glow.ready(function(){
+	flipBook("#demo_one ul");
+});</code></pre>
+
+<p>As you can see in the JavaScript code above you just need to pass in a reference to an ordered or unordered list.  This needs to be well formed and each list item needs to contain only one image.</p>
+
+<p>The flipBook will take up as much width as it's parent element will allow it to, the blades (unshown images) will have a width that makes up the remainder of the available space.</p> 
+
+<h2>Demo two: A customised flipBook</h2>
+<p>You can change the way each item in the flipBook looks and interacts.  You can add additional elements into each item as well as use it as a navigational element for your page:</p>
+
+<div id="demo_two" class="demo">
+	
+</div>
+
+<h3>HTML</h3>
+<pre><code>&lt;div id="demo_two"&gt;
+	&lt;ul id="myImages&gt;
+		&lt;li&gt;
+			&lt;a href="http://www.google.co.uk&gt;
+				&lt;span&gt;Title&lt;/span&gt;
+				&lt;img src="image_01.jpg" 
+					height="220" 
+					width="292" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		...
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>JavaScript</h3>
+<pre><code class="js">glow.ready(function(){
+	flipBook("#myImages");
+});</code></pre>
+
+
+<h2>Demo three - interacting with flipBook via its API</h2>
+<p>The flipBook widget has a basic API that gives you the following:</p>
+<ul>
+	<li>flipBook.position - which image is currently being shown</li>
+	<li>flipBook.length - the number of images in the widget</li>
+	<li>flipBook.move(i) - allows you to tell the widget which image to show</li>
+</ul>
+<p>Below is an example that lets you change the image on show in the flipBook with form buttons.  When you change the flipBook the input is updated telling you which image is being shown.</p>
+
+<div id="demo_three" class="demo"><div id="cp">
+		<input type="button" id="prev" value="Prev" />
+		<input type="text" id="position" value="" disabled="disabled" />
+		<input type="button" id="next" value="Next" />
+	</div>
+</div>
+
+<h3>HTML</h3>
+<pre><code>&lt;div id="demo_one"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;img src="image_01.jpg" 
+				height="220" width="292" /&gt;
+		&lt;/li&gt;
+		...
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id="cp"&gt;
+	&lt;input type="button" id="prev" value="Prev" /&gt;
+	&lt;input type="text" id="position" value="" 
+		disabled="true" /&gt;
+	&lt;input type="button" id="next" value="Next" /&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>JavaScript</h3>
+<pre><code class="js">glow.ready(function(){
+	$ = glow.dom.get;
+
+	// Create a flipBook widget, tell it to update the input <br />// box whenever the image changes
+	var myFlipBook3 = flipBook("#demo_three ul", {
+		onChange: function(e) {
+			$('#position').val(myFlipBook3.position);
+		}
+	});
+
+	// Event listener for next button
+	glow.events.addListener($('#next'), 'click', function() {
+		myFlipBook3.move(myFlipBook3.position + 1);
+		$('#position').val(myFlipBook3.position);
+	});
+
+	// Event listener for prev button
+	glow.events.addListener($('#prev'), 'click', function() {
+		myFlipBook3.move(myFlipBook3.position - 1);
+		$('#position').val(myFlipBook3.position);
+	});
+
+	// Give an initial value to the text input
+	$('#position').val(myFlipBook3.position);
+});</code></pre>
+
+
+<h2>Using flipBook with Gloader</h2>
+<p>If you want to use the flipBook widget with Gloader (a JavaScript loader available with Glow) in a scoped function, you will need to pass a reference of Glow into the flipBook widget.  You can do this like so:</p>
+
+<h3>JavaScript</h3>
+<pre><code>gloader.load(
+	["glow", "1", "glow.anim", "glow.dom", "glow.events"],
+	{
+		async: true,
+		onLoad: function(glow) {
+			glow.ready(function() {
+				flipBook("#example_one ul", 
+					{}, 
+					glow
+				);
+			});
+		}
+	}
+);</code></pre>
+
+<p>Note that you will need to define the modules "glow.anim", "glow.dom" and "glow.events".</p>
+
+</div>
+
+<div id="footer">
+	<h1><span>FlipBook</span> Widget for Glow</h1>
+	<p>Tom Maslen, &copy; 2010</p>
+</div>
+
+
+
+
+
+</div>
+
+</body>
+</html>

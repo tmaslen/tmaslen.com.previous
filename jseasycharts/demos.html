@@ -1,0 +1,1010 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+
+<head profile="http://dublincore.org/documents/dcq-html/">
+<title>jsEasyCharts - Demos</title>
+<meta name="description" content="jsEasyCharts is a JavaScript wrapper that allows you to easily place a Google Chart onto your page and access it via a simple API." />
+<meta name="keywords" content="Charts, JavaScript, Google Charts, jsEasyCharts, pie charts, line charts, bar charts" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<meta name="DCTERMS.created" content="2009-08-18T12:00:00Z" />
+<meta name="DCTERMS.modified" content="2009-08-18T12:35:00Z" />
+
+<!--[if IE]><![if gte IE 6]><![endif]-->
+<style type="text/css">
+ul#nav li#d {background: #fff; background-image: none;}
+</style>
+<link rel="stylesheet" type="text/css" href="site.css" />
+<link rel="stylesheet" type="text/css" href="scripts/prettify.css" />
+<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="scripts/jseasycharts.min.js"></script>
+<script type="text/javascript" src="scripts/demosPage.js"></script>
+
+<!--[if IE]><![endif]><![endif]-->
+
+</head>
+<body>
+
+<div id="column">
+
+<div id="mast">
+<h1>jsEasyCharts</h1>
+</div>
+
+
+<ul id="nav">
+	<li id="home"><a href="index.html">Home</a></li>
+	<li id="d"><a href="demos.html">Demos</a></li>
+	<li id="download"><a href="http://code.google.com/p/jseasycharts/downloads/list">Download</a></li>
+</ul>
+
+
+<!-- *********** -->
+<!-- LINE CHARTS -->
+<!-- *********** -->
+
+<div class="round_top"></div><div class="chart_demo">
+
+<h2 id="line_charts">Line Charts</h2>
+
+<h3>Constructor</h3>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+</span>
+<code>jsEasyCharts.line(attachTo, dataSource, opts);</code></pre>
+<dl class="constructor">
+	<dt>attachTo</dt>
+	<dd>Type: DOM element | string<br />
+	Reference of an element on the page where you want the chart to be put.  This can be either a string dictating the id of the element or a reference to the element itself.</dd>
+	<dt>dataSource</dt>
+	<dd>Type: Array | JSON object | table DOM element<br />
+	The data that you want to populate the chart with.  This can be an array/multi-dimensional array, a JSON object or a reference to a table element.</dd>
+	<dt>opts</dt>
+	<dd>Type: JSON object<br />
+	Optional configuration setting.
+	<dl class="options">
+		<dt>axisLabels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for the values of your data.  These values go across the Y axis of the chart.</dd>
+		<dt>colour</dt>
+		<dd>Type: String<br />
+		Default: none<br />
+		The RGB value for the colour you want the lines in the chart to be.  To set multiple colours use a comma delimited list of RGB values (e.g. '99cc00,cc9900').</dd>
+		<dt>dataScaling</dt>
+		<dd>Type: JSON OBJECT<br />
+		Default: none<br />
+		By default the values that you can enter range from 0 - 100. Google Charts will ignore any value you enter which is less than 0, and cap any values higher than 100 at 100. You can override this behaviour with the use of the dataScaling parameter in the options object.  Use the dataScaling option to specify a top and bottom value for your data to be scaled against (e.g. dataScaling: {top: 230, bottom: 120}.</dd>
+		<dt>labels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for your data.  These values go across the X axis of the chart.</dd>
+		<dt>legend</dt>
+		<dd>Type: string<br />
+		Default: none<br />
+		A comma delimited list of values to display in a legend.  The legend will use any colour values passed in via the colour parameter in the options object.</dd>
+		<dt>showLabels</dt>
+		<dd>Type: boolean<br />
+		Default: true<br />
+		Set to false if your dataSource has data for labels but you do not want them to be shown in the chart.</dd>
+		<dt>size</dt>
+		<dd>Type: string<br />
+		Default: '100x100'<br />
+		'x' delimited values for the height and width of the chart.</dd>
+	</dl>
+	</dd>
+</dl>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="basic_line_chart">Basic line chart</h3>
+<p>You can use the API with very minimal settings. You can create a chart with just a reference to a parent element and an array of values, like so:</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+</span>
+<code>jsEasyCharts.line(
+	'line1',
+	[80,15,45,11,70,55]
+);</code></pre>
+<div id="line1"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="setting_data_with_json_sizing_and_colouring_line">Setting data with JSON, sizing and colouring</h3>
+<p>As well as defining the data for the chart as an array, you can also pass in a JSON object. If you do this, the labels in the JSON object will be used in the chart.  Note that if labels are supplied for the chart, then axis labels will be added also.</p>
+<p>A third optional param in the method call is an options object.  Here you can set the size and colouring of the chart.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+<span>14:</span>
+<span>15:</span>
+</span>
+<code>jsEasyCharts.line(
+	document.getElementById('line2'),
+	{
+		January: 70,
+		Febuary: 54,
+		March: 51,
+		April: 60,
+		May: 33,
+		June: 30
+	},
+	{
+		colour: 'ff0000',
+		size: '110x110'
+	}
+);</code></pre>
+<div id="line2"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="defining_labels_and_setting_data_with_a_table_line">Defining labels and setting data with a HTML table</h3>
+<p>You can define the data for the chart using a (2 row/column only) table.  The options object also allows you to override the labels (from the data source) and set axis labels for the chart.</p>
+<table id="dataLine3">
+	<tr>
+		<td>2009-02-01</td>
+		<td>36</td>
+	</tr>
+	<tr>
+		<td>2009-02-02</td>
+		<td>42</td>
+	</tr>
+	<tr>
+		<td>2009-02-03</td>
+		<td>53</td>
+	</tr>
+	<tr>
+		<td>2009-02-04</td>
+		<td>40</td>
+	</tr>
+	<tr>
+		<td>2009-02-05</td>
+		<td>39</td>
+	</tr>
+	<tr>
+		<td>2009-02-06</td>
+		<td>30</td>
+	</tr>
+	<tr>
+		<td>2009-02-07</td>
+		<td>36</td>
+	</tr>
+	<tr>
+		<td>2009-02-08</td>
+		<td>45</td>
+	</tr>
+	<tr>
+		<td>2009-02-09</td>
+		<td>50</td>
+	</tr>
+</table>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+</span>
+<code>jsEasyCharts.line(
+	'line3',
+	'dataLine3',
+	{
+		size: '200x120',
+		labels: ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'],
+		axisLabels: ['0%', '25%', '50%', '75%', '100%']
+	}
+);</code></pre>
+<div id="line3"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="data_scaling_a_line_chart">Data scaling a line chart</h3>
+<p>By default the values that you can enter range from 0 - 100.  Google Charts will ignore any value you enter which is less than 0, and cap any values higher than 100 at 100.  You can override this behaviour with the use of the dataScaling parameter in the options object.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+<span>14:</span>
+<span>15:</span>
+<span>16:</span>
+<span>17:</span>
+<span>18:</span>
+<span>19:</span>
+<span>20:</span>
+<span>21:</span>
+<span>22:</span>
+<span>23:</span>
+<span>24:</span>
+<span>25:</span>
+<span>26:</span>
+<span>27:</span>
+<span>28:</span>
+</span>
+<code>jsEasyCharts.line(
+	'line4',
+	{
+		week01: 20,
+		week02: 17,
+		week03: 13,
+		week04: 8,
+		week05: 4,
+		week06: -1,
+		week07: 1,
+		week08: 0,
+		week09: -1,
+		week10: -3,
+		week11: -6,
+		week12: -5,
+		week13: -2,
+		week14: 2
+	},
+	{
+		size: '200x120',
+		dataScaling: {
+			top: 140, 
+			bottom: -80
+		},
+		axisLabels: ['-10', '-08', '-06', '-04', '-02', '0', '2', '4', '6', 
+			'8', '10', '12', '14', '16', '18', '20']
+	}
+);</code></pre>
+<div id="line4"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="Multiple_data_tracks_with_an_array_on_a_line_chart">Multiple data tracks with an array on a line chart</h3>
+<p>You can define more than one track by passing in a multi-dimensional array.  You can then set the colour of each track by passing in a list of comma seperated RGB values into the colour param of the options object.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+</span>
+<code>jsEasyCharts.line(
+	'line5',
+	[[86,75,82,69,50,34], [29,22,25,40,49,55]],
+	{
+		size: '200x150',
+		colour: '99cc00,cc9900'
+	}
+);</code></pre>
+<div id="line5"></div>
+
+<p>You can give the chart a legend, so users know what multiple tracks relate to.  Add the param "legend" to the options object, give it the value of a comma or pipe seperated list.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+</span>
+<code>jsEasyCharts.line(
+	'line6',
+	[[86,75,82,69,50,34], [29,22,25,40,49,55]],
+	{
+		size: '270x150',
+		colour: '99cc00,cc9900',
+		legend: 'POUND,EURO'
+	}
+);</code></pre>
+<div id="line6"></div>
+
+</div><div class="round_bottom"></div>
+
+
+<!-- ********** -->
+<!-- BAR CHARTS -->
+<!-- ********** -->
+
+
+<div class="round_top"></div><div class="chart_demo">
+
+
+<h2 id="bar_charts">Bar Charts</h2>
+
+<h3>Constructor</h3>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+</span>
+<code>jsEasyCharts.bar(attachTo, dataSource, opts);</code></pre>
+<dl class="constructor">
+	<dt>attachTo</dt>
+	<dd>Type: DOM element | string<br />
+	Reference of an element on the page where you want the chart to be put.  This can be either a string dictating the id of the element or a reference to the element itself.</dd>
+	<dt>dataSource</dt>
+	<dd>Type: Array | JSON object | table DOM element<br />
+	The data that you want to populate the chart with.  This can be an array/multi-dimensional array, a JSON object or a reference to a table element.</dd>
+	<dt>opts</dt>
+	<dd>Type: JSON object<br />
+	Optional configuration setting.
+	<dl class="options">
+		<dt>axisLabels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for the values of your data.  These values go across the Y axis of the chart.</dd>
+		<dt>barSpacing</dt>
+		<dd>Type: number<br />
+		Default: none<br />
+		Specify the spacing between bars on the chart in pixels.</dd>
+		<dt>barWidth</dt>
+		<dd>Type: number<br />
+		Default: none<br />
+		Specify the width of the bars on the chart in pixels.</dd>
+		<dt>colour</dt>
+		<dd>Type: String<br />
+		Default: none<br />
+		The RGB value for the colour you want the lines in the chart to be.  To set multiple colours use a comma delimited list of RGB values (e.g. '99cc00,cc9900').</dd>
+		<dt>dataScaling</dt>
+		<dd>Type: JSON OBJECT<br />
+		Default: none<br />
+		By default the values that you can enter range from 0 - 100. Google Charts will ignore any value you enter which is less than 0, and cap any values higher than 100 at 100. You can override this behaviour with the use of the dataScaling parameter in the options object.  Use the dataScaling option to specify a top and bottom value for your data to be scaled against (e.g. dataScaling: {top: 230, bottom: 120}.</dd>
+		<dt>grouped</dt>
+		<dd>Type: boolean<br />
+		Default: false<br />
+		Set to true if your dataSource has multiple tracks of data that you want to group together.</dd>
+		<dt>labels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for your data.  These values go across the X axis of the chart.</dd>
+		<dt>legend</dt>
+		<dd>Type: string<br />
+		Default: none<br />
+		A comma delimited list of values to display in a legend.  The legend will use any colour values passed in via the colour parameter in the options object.</dd>
+		<dt>showLabels</dt>
+		<dd>Type: boolean<br />
+		Default: true<br />
+		Set to false if your dataSource has data for labels but you do not want them to be shown in the chart.</dd>
+		<dt>size</dt>
+		<dd>Type: string<br />
+		Default: '100x100'<br />
+		'x' delimited values for the height and width of the chart.</dd>
+		<dt>type</dt>
+		<dd>Type: string<br />
+		Default: 'horizontal'<br />
+		Set to 'vertical' if you want a vertical bar chart, otherwise leave empty or set to 'horizontal' for a horizontal bar chart.</dd>
+	</dl>
+	</dd>
+</dl>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="basic_bar_chart">Basic bar chart</h3>
+<p>You can use the API with very minimal settings. You can create a chart with just a reference to a parent element and an array of values, like so:</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10]
+);</code></pre>
+<div id="bar1"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="setting_data_with_json_sizing_and_colouring_bar">Setting data with JSON, sizing and colouring</h3>
+<p>As well as defining the data for the chart as an array, you can also pass in a JSON object. If you do this, the labels in the JSON object will be used in the chart.  Note that if labels are supplied for the chart, then axis labels will be added also.</p>
+<p>A third optional param in the method call is an options object.  Here you can set the size and colouring of the chart.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar4',
+	{
+		Apricots: 10,
+		Walnuts: 20,
+		Hazelnut: 30,
+		Almond: 40
+	},
+	{
+		colour: 'ff0000',
+		size: '110x110'
+	}
+);</code></pre>
+<div id="bar4"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="defining_labels_and_setting_data_with_a_table_bar">Defining labels and setting data with a HTML table</h3>
+<p>You can define the data for the chart using a (2 row/column only) table.  The options object also allows you to override the labels (from the data source) and set axis labels for the chart.</p>
+<table id="dataBar3">
+	<tr>
+		<td>Conservative</td>
+		<td>33</td>
+		<td>33</td>
+	</tr>
+	<tr>
+		<td>Labour</td>
+		<td>16</td>
+		<td>16</td>
+	</tr>
+	<tr>
+		<td>Liberal Democrates</td>
+		<td>20</td>
+		<td>20</td>
+	</tr>
+</table>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar3',
+	'dataBar3',
+	{
+		type: 'horizontal',
+		size: '200x120',
+		labels: ['Lib Dem', 'Lab', 'Con'],
+		axisLabels: ['0%', '25%', '50%', '75%', '100%']
+	}
+);</code></pre>
+<div id="bar3"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="vertical_bar_charts">Vertical bar chart</h3>
+<p>The third param in the method call is an options object. Here you can set the type of chart and also the width and spacing of the bars. Setting the width and spacing of the bars is useful if the labels are wider than the bars.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+<span>14:</span>
+<span>15:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar2',
+	{
+		Apricots: 10,
+		Walnuts: 20,
+		Hazelnut: 30,
+		Almond: 40
+	},
+	{
+		type: 'vertical',
+		size: '450x200'
+		barWidth: 20,
+		barSpacing: 30
+	}
+);</code></pre>
+<div id="bar2"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="data_scaling_a_bar_chart">Data scaling a bar chart</h3>
+<p>By default the values that you can enter range from 0 - 100.  Google Charts will ignore any value you enter which is less than 0, and cap any values higher than 100 at 100.  You can override this behaviour with the use of the dataScaling parameter in the options object.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+<span>14:</span>
+<span>15:</span>
+<span>16:</span>
+<span>17:</span>
+<span>18:</span>
+<span>19:</span>
+<span>20:</span>
+<span>21:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar5',
+	{
+		November: 80,
+		December: -70,
+		January: 120,
+		Febuary: -40
+	},
+	{
+		type: 'vertical',
+		size: '250x300',
+		barWidth: 50,
+		barSpacing: 5,
+		dataScaling: {
+			top: 140, 
+			bottom: -80
+		},
+		axisLabels: ['-80', '-60', '-40', '-20', '0', '20', 
+			    '40', '60', '80', '100', '120', '140']
+	}
+);</code></pre>
+<div id="bar5"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="multiple_data_tracks_with_a_json_object_in_a_bar_chart">Multiple data tracks with a JSON object in a bar chart</h3>
+<p>You can define more than one track of data by passing in a JSON object with multiple sub JSON objects. You can then set the colour of each track by passing in a list of comma seperated RGB values into the colour param of the options object.  By default the bar chart will think multiple tracks are to be rendered together in a single bar...</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+<span>14:</span>
+<span>15:</span>
+<span>16:</span>
+<span>17:</span>
+<span>18:</span>
+<span>19:</span>
+<span>20:</span>
+<span>21:</span>
+<span>22:</span>
+<span>23:</span>
+<span>24:</span>
+<span>25:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar6',
+	{
+		january: {
+			"Tom": 10,
+			"Jake": 20,
+			"Michael": 30
+		},
+		february: {
+			"Tom": 40,
+			"Jake": 50,
+			"Michael": 60
+		},
+		march: {
+			"Tom": 70,
+			"Jake": 80,
+			"Michael": 90
+		}
+	},
+	{
+		size: '400x120',
+		colour: '99cc00,cc9900,0099cc',
+	}
+);</code></pre>
+<div id="bar6"></div>
+
+<p>... however if you want multiple tracks to appear seperately, you can.  Set the param 'grouped' to 'true' in the options parameter.  You can also give the chart a legend, so users know what multiple tracks relate to. Add the param "legend" to the options object, give it the value of a comma or pipe seperated list.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+<span>13:</span>
+<span>14:</span>
+<span>15:</span>
+<span>16:</span>
+<span>17:</span>
+<span>18:</span>
+<span>19:</span>
+<span>20:</span>
+<span>21:</span>
+<span>22:</span>
+<span>23:</span>
+<span>24:</span>
+<span>25:</span>
+<span>26:</span>
+<span>27:</span>
+</span>
+<code>jsEasyCharts.bar(
+	'bar7',
+	{
+		january: {
+			"Tom": 10,
+			"Jake": 20,
+			"Michael": 30
+		},
+		february: {
+			"Tom": 40,
+			"Jake": 50,
+			"Michael": 60
+		},
+		march: {
+			"Tom": 70,
+			"Jake": 80,
+			"Michael": 90
+		}
+	},
+	{
+		type: 'vertical',
+		grouped: true,
+		size: '350x300',
+		colour: '99cc00,cc9900,0099cc',
+		legend: 'Tom,Jake,Michael'
+	}
+);</code></pre>
+<div id="bar7"></div>
+
+</div><div class="round_bottom"></div>
+
+
+
+<!-- ********** -->
+<!-- PIE CHARTS -->
+<!-- ********** -->
+
+
+<div class="round_top"></div><div class="chart_demo">
+
+
+<h2 id="pie_charts">Pie Charts</h2>
+
+<h3>Constructor</h3>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+</span>
+<code>jsEasyCharts.pie(attachTo, dataSource, opts);</code></pre>
+<dl class="constructor">
+	<dt>attachTo</dt>
+	<dd>Type: DOM element | string<br />
+	Reference of an element on the page where you want the chart to be put.  This can be either a string dictating the id of the element or a reference to the element itself.</dd>
+	<dt>dataSource</dt>
+	<dd>Type: Array | JSON object | table DOM element<br />
+	The data that you want to populate the chart with.  This can be an array/multi-dimensional array, a JSON object or a reference to a table element.</dd>
+	<dt>opts</dt>
+	<dd>Type: JSON object<br />
+	Optional configuration setting.
+	<dl class="options">
+		<dt>colour</dt>
+		<dd>Type: String<br />
+		Default: none<br />
+		The RGB value for the colour you want the lines in the chart to be.  To set multiple colours use a comma delimited list of RGB values (e.g. '99cc00,cc9900').</dd>
+		<dt>labels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for your data.  These values go across the X axis of the chart.</dd>
+		<dt>legend</dt>
+		<dd>Type: string<br />
+		Default: none<br />
+		A comma delimited list of values to display in a legend.  The legend will use any colour values passed in via the colour parameter in the options object.</dd>
+		<dt>showLabels</dt>
+		<dd>Type: boolean<br />
+		Default: true<br />
+		Set to false if your dataSource has data for labels but you do not want them to be shown in the chart.</dd>
+		<dt>size</dt>
+		<dd>Type: string<br />
+		Default: '100x100'<br />
+		'x' delimited values for the height and width of the chart.</dd>
+	</dl>
+	</dd>
+</dl>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="basic_pie_chart">Basic pie chart</h3>
+<p>You can use the API with very minimal settings.  You can create a chart with just a reference to a parent element and an array of values, like so:</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+</span>
+<code>jsEasyCharts.pie(
+	'chart1',
+	[10,10,10]
+);</code></pre>
+<div id="chart1"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="setting_data_with_json">Setting data with JSON</h3>
+<p>As well as defining the data for the chart as an array, you can also pass in a JSON object.  If you do this, the labels in the JSON object will be used in the chart.  A third optional param in the method call is an options object.  Here you can set the size of the chart.</p>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+<span>10:</span>
+<span>11:</span>
+<span>12:</span>
+</span>
+<code>jsEasyCharts.pie(
+	'chart2',
+	{
+		Apricots: 10,
+		Walnuts: 20,
+		Hazelnut: 30,
+		Almond: 40
+	},
+	{
+		size: '500x250'
+	}
+);</code></pre>
+<div id="chart2"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="setting_data_with_a_html_table_changing_the_type_of_bar_chart_and_changing_the_colour">Setting data with a HTML table, changing the type of bar chart, and changing the colour</h3>
+<p>Not only can you use an array and a JSON object to define the data for the chart, you can also pass in a (2 row/column only) table.  The options object also lets you set the type of pie chart, and pass in a list of colours to use for the values.</p>
+<table id="data3">
+	<tr>
+		<td>Conservative</td>
+		<td>33</td>
+	</tr>
+	<tr>
+		<td>Labour</td>
+		<td>16</td>
+	</tr>
+	<tr>
+		<td>Lib Dem</td>
+		<td>20</td>
+	</tr>
+</table>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+</span>
+<code>jsEasyCharts.pie(
+	'chart3',
+	'data3',
+	{
+		type: '3d',
+		size: '650x300',
+		colour: '0000ff,ff0000,ffff00'
+	}
+);</code></pre>
+<div id="chart3"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="overriding_labels_on_the_chart">Overriding labels on the chart</h3>
+<p>The options object will also let you override the labels too (if you so desire), as well as set a single colour which Google Chart will then use to make up all the colours in the chart.</p>
+<table id="data4">
+	<tr>
+		<td>Internet Explorer 7</td>
+		<td>Internet Explorer 6</td>
+		<td>Internet Explorer 8</td>
+		<td>Firefox</td>
+		<td>Chrome</td>
+		<td>Safari</td>
+		<td>Others</td>
+		
+	</tr>
+	<tr>
+		<td>21.3</td>
+		<td>14.5</td>
+		<td>5.2</td>
+		<td>47.7</td>
+		<td>40</td>
+		<td>3.0</td>
+		<td>2.2</td>
+	</tr>
+</table>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+</span>
+<code>jsEasyCharts.pie(
+	'chart4',
+	'data4',
+	{
+		labels: ['IE7', 'IE6', 'IE8', 'FF', 'CH', 'SF', 'OTHERS'],
+		size: '600x300',
+		colour: '99cc00'
+	}
+);</code></pre>
+<div id="chart4"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="multiple_data_tracks_with_a_html_table_in_a_pie_chart">Multiple data tracks with a HTML table in a pie chart</h3>
+<p></p>
+<table id="data5">
+	<tr>
+		<td>Internet Explorer 7</td>
+		<td>Internet Explorer 6</td>
+		<td>Internet Explorer 8</td>
+		<td>Firefox</td>
+		<td>Chrome</td>
+		
+	</tr>
+	<tr>
+		<td>25</td>
+		<td>15</td>
+		<td>20</td>
+		<td>30</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>20</td>
+		<td>30</td>
+		<td>10</td>
+		<td>25</td>
+	</tr>
+</table>
+<pre class="prettyprint">
+<span class="numbers">
+<span>1:</span>
+<span>2:</span>
+<span>3:</span>
+<span>4:</span>
+<span>5:</span>
+<span>6:</span>
+<span>7:</span>
+<span>8:</span>
+<span>9:</span>
+</span>
+<code>jsEasyCharts.pie(
+	'chart5',
+	'data5',
+	{
+		size: '600x300',
+		colour: '0099cc',
+		showLabels: false
+	}
+);</code></pre>
+<div id="chart5"></div>
+			
+
+</div><div class="round_bottom"></div>
+
+
+</div>
+
+<div id="footer">
+<p>jsEasyCharts, 2009</p>
+</div>
+
+<script type="text/javascript" src="scripts/prettify.js"></script>
+<script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var pageTracker = _gat._getTracker("UA-5819125-1");pageTracker._trackPageview();</script>
+</body>
+</html>

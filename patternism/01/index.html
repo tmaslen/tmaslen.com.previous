@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>patternism</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script src="http://node1.bbcimg.co.uk/glow/glow/1.7.0/core/core.js" type="text/javascript"></script>
+<style type="text/css">
+body {background: #340019; margin: 1em auto; width: 660px;}
+.twohundred {background-image: url(img/200x200.png); float: left; height: 200px; margin: 10px; width: 200px;}
+.onehundred {background-image: url(img/100x100.png); float: left; height: 100px; margin: 10px; width: 100px;}
+</style>
+<script type="text/javascript">
+glow.ready(function(){
+	var $ = glow.dom.get,
+		body = $('body'),
+		number_of_circles = 25,
+		speed = 50,
+		type = 'onehundred'
+		colours = ['#fc172e', '#fff00d', '#28b9aa', '#e51050', '#fe5421', '#48b838'];
+	
+	for(var x = 0; x < number_of_circles; x++) {
+		add_circle();
+	}
+
+	change_color();
+	change_color();
+	change_color();
+
+	function add_circle(size) {
+		var circle = glow.dom.create('<div class="' + type + '"></div>');
+		circle.css('background-color', random_colour());
+		body.append(circle);
+	}
+
+	function change_color() {
+		var circle_to_change = Math.floor(Math.random()*number_of_circles);
+		var circle = $('.' + type).item(circle_to_change);
+		$(circle).css('background-color', random_colour());
+		setTimeout(function() {
+				change_color();
+			},
+			speed
+		);
+	}
+
+	function random_colour() {
+		return colours[Math.floor(Math.random()*colours.length)];
+	}
+});
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

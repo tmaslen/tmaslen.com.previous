@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+			body {font-family: sans-serif; margin: 0; padding: 0; overflow: hidden; zoom: 0;}
+			#draw {left; height: 100%; margin: 1em 1em 1em -270px; padding: 0.5em; position: absolute; top: 0; width: 300px;}
+			#draw #background {background: #fff; height: 100%; left: -1em; opacity: 0.2; position: absolute; top: -1em; width: 285px;}
+			#draw h2 {color: #fff; font-size: 1em; font-weight: normal;}
+
+		</style>
+		<!--[if IE]><script type="text/javascript" src="excanvas.complied.js"></script><![endif]-->
+		<script src="http://node1.bbcimg.co.uk/glow/glow/1.7.0/core/core.js" type="text/javascript"></script>
+		<script src="http://node1.bbcimg.co.uk/glow/glow/1.7.0/widgets/widgets.js" type="text/javascript"></script>
+		<link href="http://node1.bbcimg.co.uk/glow/glow/1.7.0/widgets/widgets.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript">
+			glow.ready(function(){
+				var $ = glow.dom.get,
+					canvas = $('canvas'),
+					offset_vertical = 0,
+					offset_horizontal = 0,
+					cols = 3,
+					rows = 3,
+					original_size = 100,
+					size = original_size,
+					spacing = 220,
+					speed = 1500,
+					circles = new Array(cols, rows),
+					colours = ['#fc172e', '#fff00d', '#28b9aa', '#e51050', '#fe5421', '#48b838'],
+					rows_spacing_offset = 0,
+					cols_spacing_offset = 0,
+					offset_vertical = 0,
+					offset_horizontal = 0,
+					do_loop = true;
+ 
+				// Set canvas to fullscreen
+				canvas.attr('height', $(document).height());
+				canvas.attr('width', $(document).width());
+				canvas.css('background', 'black');
+
+				// Calculate offset - canvas treats 0,0 to be top left.  This offset allows elements to be centered on the screen.
+				calculate_offset();
+				function calculate_offset() {
+					rows_spacing_offset = (rows > 1) ? ((rows-1)*spacing)/2 : 0;
+					cols_spacing_offset = (cols > 1) ? ((cols-1)*spacing)/2 : 0;
+					offset_vertical = (canvas.attr('height') / 2) - rows_spacing_offset;
+					offset_horizontal = (canvas.attr('width') / 2) - cols_spacing_offset;
+				}
+
+
+				// Calls the draw function recursively
+				loop();
+				function loop() {
+					if (do_loop == false) return false;
+					draw();
+
+					size = size - (original_size * 0.1);
+					if (size <= 0) {
+						size = original_size;
+					}
+
+					setTimeout(function() {
+							loop();
+						},
+						speed
+					);
+				}
+
+
+
+
+
+
+
+				// Pull out, auto slide in control panel
+				glow.events.addListener('#draw', 'mouseover', function(){
+					glow.anim.css('#draw', 0.25, {
+						'margin-left': 0
+					},
+					{
+						tween: glow.tweens.easeOut()
+					}).start();
+				});
+				glow.events.addListener('#draw', 'mouseout', function(){
+					glow.anim.css('#draw', 0.25, {
+						'margin-left': -270
+					},
+					{
+						tween: glow.tweens.easeOut()
+					}).start();
+				});
+
+				// Add controls
+				control_panel = $('#draw');
+				control_panel.append('<h2>Size</h2>');
+				var sizeSlider = new glow.widgets.Slider(control_panel, {
+					size: 250,
+					tickMajor: 10,
+					val: 100,
+					max: 200,
+					onChange: function() {
+						original_size = sizeSlider.val();
+						reset_canvas();
+					}
+				});
+
+				control_panel.append('<h2>Speed</h2>');
+				var speedSlider = new glow.widgets.Slider(control_panel, {
+					size: 250,
+					tickMajor: 10,
+					min: 1,
+					max: 200,
+					val: 100,
+					onChange: function() {
+						speed = (200 - speedSlider.val()) * 15;
+					}
+				});
+				control_panel.append('<h2>Rows</h2>');
+				var rowsSlider = new glow.widgets.Slider(control_panel, {
+					size: 250,
+					max: 30,
+					val: 3,
+					tickMajor: 10,
+					onChange: function() {
+						rows = rowsSlider.val();
+						reset_canvas();
+					}
+				});
+				control_panel.append('<h2>Columns</h2>');
+				var colsSlider = new glow.widgets.Slider(control_panel, {
+					size: 250,
+					max: 30,
+					tickMajor: 10,
+					val: 3,
+					onChange: function() {
+						cols = colsSlider.val();
+						reset_canvas();
+					}
+				});
+				control_panel.append('<h2>Spacing</h2>');
+				var spacingSlider = new glow.widgets.Slider(control_panel, {
+					size: 250,
+					max: 400,
+					tickMajor: 20,
+					val: 220,
+					onChange: function() {
+						spacing = spacingSlider.val();
+						reset_canvas();
+					}
+				});
+
+				function reset_canvas() {
+					do_loop = false;
+					canvas.attr('width', canvas.attr('width'));
+					calculate_offset();
+					size = original_size;
+					setTimeout(function() {
+							do_loop = true;
+							loop();
+						},
+						speed+10
+					);
+				}
+
+
+				// draws cols and rows of circles onto canvas
+				function draw() {
+					// Add columns
+					for (x = 0; x < cols; x++)
+					{
+
+						// Add rows
+						for (y = 0; y < rows ; y++)
+						{
+
+							// Add circle to circles array
+							circles[x, y] = make_circle({
+								size: size,
+								pos: {
+									x: (x*spacing)+offset_horizontal,
+									y: (y*spacing)+offset_vertical
+								}
+							});
+
+						}
+					}
+				}
+
+
+				// Returns a circle object rendered on the canvas
+				function make_circle(opts) {
+					var circle = canvas.item(0).getContext('2d');
+					
+					opts = opts || {};
+
+					opts = apply_default_vals(opts, {
+						size: 50,
+						color: random_colour(),
+						pos: {
+							x: 150,
+							y: 150
+						}
+					});
+
+					circle.fillStyle = opts.color;
+					circle.beginPath();
+					circle.arc(opts.pos.x, opts.pos.y, opts.size, 0, 7, false);
+					circle.fill();
+				
+					return circle;
+
+				}
+
+				// Pass in an options object and an object of default values.  any values not set in the options object will get the value from the default values
+				function apply_default_vals(opts, def) {
+					for(opt in def) {
+						if(typeof opts[opt] == 'undefined') {
+							opts[opt] = def[opt];
+						}
+					}
+					return opts;
+				}
+
+				// Randomly chooses a colour from the colour array
+				function random_colour() {
+					return colours[Math.floor(Math.random()*colours.length)];
+				}
+
+				function debug(text) {
+					$('#debug').item(0).innerHTML += text + '<br />';
+				}
+
+			});
+		</script>
+	</head>
+	<body>
+		<canvas width="300" height="300"></canvas>
+		<div id="draw">
+			<div id="background"></div>
+		</div>
+	</body>
+</html>

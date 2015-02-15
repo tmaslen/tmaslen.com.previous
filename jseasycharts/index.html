@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+
+<head profile="http://dublincore.org/documents/dcq-html/">
+<title>jsEasyCharts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="jsEasyCharts is a JavaScript wrapper that allows you to easily place a Google Chart onto your page and access it via a simple API." />
+<meta name="keywords" content="Charts, JavaScript, Google Charts, jsEasyCharts, pie charts, line charts, bar charts" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<meta name="DCTERMS.created" content="2009-08-18T12:00:00Z" />
+<meta name="DCTERMS.modified" content="2009-08-18T12:35:00Z" />
+
+<!--[if IE]><![if gte IE 6]><![endif]-->
+<style type="text/css">
+ul#nav li#home {background: #fff; background-image: none;}
+</style>
+<link rel="stylesheet" type="text/css" href="site.css" />
+<link rel="stylesheet" type="text/css" href="scripts/prettify.css" />
+<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="scripts/jseasycharts.min.js"></script>
+<script type="text/javascript" src="scripts/indexPage.js"></script>
+
+<!--[if IE]><![endif]><![endif]-->
+
+</head>
+<body>
+
+<div id="column">
+
+<div id="mast">
+<h1>jsEasyCharts</h1>
+</div>
+
+
+<ul id="nav">
+	<li id="home"><a href="index.html">Home</a></li>
+	<li id="d"><a href="demos.line.html">Demos</a></li>
+	<li id="dl"><a href="http://code.google.com/p/jseasycharts/downloads/list">Download</a></li>
+	<li id="faq"><a href="faq.html">FAQs</a></li>
+</ul>
+
+
+<div id="intro">
+
+<p id="download"><a href="http://jseasycharts.googlecode.com/files/jseasycharts.min.js"><span>Download jsEasyCharts</span></a> Under 7kb compressed</p>
+
+<p>The <a href="http://code.google.com/apis/chart/" class="gca">Google Charts API</a> is an excellent way to put charts onto your page - they are PNG images, so do not require any specific plugin or latest browser.  However, the interface is a URL, so it can be hard to build the querystring to make a chart.</p>
+
+<p>jsEasyCharts is a JavaScript wrapper that allows you to easily place a Google Chart onto your page and access it via a simple API.</p>
+
+<p>jsEasyCharts is also:</p>
+
+<ul>
+	<li><strong>Easy to use</strong> - make a chart with just two lines of JavaScript.</li>
+	<li><strong>Flexible</strong> - Can be used with almost any type of data: HTML table, arrays and JSON.</li>
+	<li><strong>Customisable</strong> - define the size, colour, labels, scale, type and spacing for your charts.</li>
+</ul>
+
+<p><a href="#more">Continue reading...</a></p>
+
+</div>
+
+<div class="round_top"></div>
+<div id="demos">
+<h2>Demos</h2>
+<div class="section">
+<img src="http://chart.apis.google.com/chart?chs=200x150&chd=t:80,15,45,11,70,55&cht=lc" id="line_charts_img" alt="Example of a line chart" />
+<h3><a href="demos.line.html">Line Charts</a></h3>
+<ul id="line_demos">
+<li><a href="demos.line.html#basic_line_chart">Basic line chart</a></li>
+<li><a href="demos.line.html#setting_data_with_json_sizing_and_colouring_line">Setting data with JSON, sizing and colouring</a></li>
+<li><a href="demos.line.html#defining_labels_and_setting_data_with_a_table_line">Defining labels and setting data with a HTML table</a></li>
+<li><a href="demos.line.html#data_scaling_a_line_chart">Data scaling a line chart</a></li>
+<li><a href="demos.line.html#Multiple_data_tracks_with_an_array_on_a_line_chart">Multiple data tracks with an array on a line chart</a></li>
+</ul>
+</div>
+<div class="section">
+<img src="http://chart.apis.google.com/chart?chs=200x150&chd=t:60,40,10&cht=bhs&chds=,140" id="bar_charts_img" alt="Example of a bar chart" />
+<h3><a href="demos.bar.html">Bar Charts</a></h3>
+<ul id="bar_demos">
+<li><a href="demos.bar.html#basic_bar_chart">Basic bar chart</a></li>
+<li><a href="demos.bar.html#setting_data_with_json_sizing_and_colouring_bar">Setting data with JSON, sizing and colouring</a></li>
+<li><a href="demos.bar.html#defining_labels_and_setting_data_with_a_table_bar">Defining labels and setting data with a HTML table</a></li>
+<li><a href="demos.bar.html#vertical_bar_charts">Vertical bar chart</a></li>
+<li><a href="demos.bar.html#data_scaling_a_bar_chart">Data scaling a bar chart</a></li>
+<li><a href="demos.bar.html#multiple_data_tracks_with_a_json_object_in_a_bar_chart">Multiple data tracks with a JSON object in a bar chart</a></li>
+</ul>
+</div>
+<div class="section">
+<img src="http://chart.apis.google.com/chart?chs=200x150&chd=t:10,10,10&cht=p" id="pie_charts_img" alt="Example of a pie chart" />
+<h3><a href="demos.pie.html">Pie Charts</a></h3>
+<ul id="pie_demos">
+<li><a href="demos.pie.html#basic_pie_chart">Basic pie chart</a></li>
+<li><a href="demos.pie.html#setting_data_with_json">Setting data with JSON</a></li>
+<li><a href="demos.pie.html#setting_data_with_a_html_table_changing_the_type_of_bar_chart_and_changing_the_colour">Setting data with a HTML table, changing the type of bar chart, and changing the colour</a></li>
+<li><a href="demos.pie.html#overriding_labels_on_the_chart">Overriding labels on the chart</a></li>
+<li><a href="demos.pie.html#multiple_data_tracks_with_a_html_table_in_a_pie_chart">Multiple data tracks with a HTML table in a pie chart</a></li>
+</ul>
+</div>
+<div class="section">
+<img src="img/sideBySide_1.gif" id="sideBySide_charts_img" alt="Example of a side-by-side chart" />
+<h3><a href="demos.sideBySide.html">Side-by-side Charts</a></h3>
+<ul id="sideBySide_demos">
+<li><a href="demos.sideBySide.html#basic_chart_sbs">Basic side-by-side chart</a></li>
+<li><a href="demos.sideBySide.html#setting_data_with_json_sbs">Setting data with JSON, adding axisLabels and overriding labels on the chart</a></li>
+<li><a href="demos.sideBySide.html#setting_data_with_a_html_table_changing_the_type_of_bar_chart_and_changing_the_colour_sbs">Setting data with a HTML table, adding grid lines and changing the colour</a></li>
+<li><a href="demos.sideBySide.html#data_scaling_sbs">Data scaling a side-by-side chart</a></li>
+</ul>
+</div>
+
+<h3>Setup</h3>
+
+<p>To use the JavaScript API first add the below code into your page, then add one of the code examples into the window.onload function:</p>
+
+<pre class="prettyprint"><code>&lt;script type="text/javascript" src="jseasycharts.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+window.onload = function () {
+	// Examples go in here
+}
+&lt;/script&gt;</code></pre>
+</div>
+<div class="round_bottom"></div>
+
+
+
+
+<div class="round_top"></div>
+<div id="more">
+<h2>More about jsEasyCharts</h2>
+
+<p>jsEasyCharts will work in the following browsers:</p>
+
+<ul>
+	<li>Internet Explorer 6/7/8</li>
+	<li>Firefox 1.5/2/3</li>
+	<li>Chrome</li>
+	<li>Opera 9/10</li>
+	<li>Safari 2/3/4</li>
+</ul>
+
+<p>The latest version of jsEasyChart has a new type of chart, the <em>Side-By-Side</em> chart.  This is unique to jsEasyChart, it allows you to compare two tracks of bar chart data side by side, showing each item of the tracks together.</p>
+
+<h3>What jsEasycharts is not</h3>
+
+<p>jsEasyCharts is a clean and simple way to put a chart into your page.  There are many other great JavaScript charting solutions out there.  jsEasyCharts does not give you an interactive chart, if you want a more dynamic chart then please look at any of the following charting solutions:</p>
+
+<ul>
+	<li><a href="http://code.google.com/apis/visualization/">Google Visualization API</a>, Google's own excellent (but quite complicated) interactive charting solution.</li>
+	<li><a href="http://bluff.jcoglan.com/">Bluff</a>, a free solution by James Coglan that uses the canvas element.  It looks very good but has limited documentation.</li>
+	<li><a href="http://www.ejschart.com/">Emprise JavaScript Charts</a>, a paid for solution that uses the canvas element.</a></li>
+	<li><a href="http://raphaeljs.com/">Raphael JavaScript Library</a>, a beautiful collection of different graphs, again using the canvas element.</a></li>
+	<li><a href="http://www.jscharts.com/">JS Charts</a>, another paid for solution that uses the canvas element.</a></li>
+</ul>
+
+</div>
+<div class="round_bottom"></div>
+
+</div>
+
+<div id="footer">
+<p>jsEasyCharts, 2009</p>
+</div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5819125-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

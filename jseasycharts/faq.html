@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+
+<head profile="http://dublincore.org/documents/dcq-html/">
+<title>jsEasyCharts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="jsEasyCharts is a JavaScript wrapper that allows you to easily place a Google Chart onto your page and access it via a simple API." />
+<meta name="keywords" content="Charts, JavaScript, Google Charts, jsEasyCharts, pie charts, line charts, bar charts" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<meta name="DCTERMS.created" content="2009-08-18T12:00:00Z" />
+<meta name="DCTERMS.modified" content="2009-08-18T12:35:00Z" />
+
+<!--[if IE]><![if gte IE 6]><![endif]-->
+<style type="text/css">
+ul#nav li#faq {background: #fff; background-image: none;}
+</style>
+<link rel="stylesheet" type="text/css" href="site.css" />
+
+<!--[if IE]><![endif]><![endif]-->
+
+</head>
+<body>
+
+<div id="column">
+
+<div id="mast">
+<h1>jsEasyCharts</h1>
+</div>
+
+
+<ul id="nav">
+	<li id="home"><a href="index.html">Home</a></li>
+	<li id="d"><a href="demos.line.html">Demos</a></li>
+	<li id="dl"><a href="http://code.google.com/p/jseasycharts/downloads/list">Download</a></li>
+	<li id="faq"><a href="faq.html">FAQs</a></li>
+</ul>
+
+<div class="round_top"></div><div id="faq">
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can I change the chart after it is created?</h3>
+
+<p>jsEasyCharts is a clean and simple way to put a chart into your page.  There are many other great JavaScript charting solutions out there.  jsEasyCharts does not give you an interactive chart, if you want a more dynamic chart then please look at any of the following charting solutions:</p>
+<ul>
+	<li><a href="http://code.google.com/apis/visualization/">Google Visualization API</a>, Google's own excellent (but quite complicated) interactive charting solution.</li>
+	<li><a href="http://bluff.jcoglan.com/">Bluff</a>, a free solution by James Coglan that uses the canvas element.  It looks very good but has limited documentation.</li>
+	<li><a href="http://www.ejschart.com/">Emprise JavaScript Charts</a>, a paid for solution that uses the canvas element.</a></li>
+	<li><a href="http://raphaeljs.com/">Raphael JavaScript Library</a>, a beautiful collection of different graphs, again using the canvas element.</a></li>
+	<li><a href="http://www.jscharts.com/">JS Charts</a>, another paid for solution that uses the canvas element.</a></li>
+</ul>
+
+<h3>The data is too small on the chart / The data is all the same on the chart</h3>
+<p>Google Charts by default treats all your data as values between 0 and 100.  This means that if you have values that are within this range and are very close together then you won't get a very informative chart.  Also, if any of the values in your data is over 100, the chart will show it as 100.</p>
+<p>To get round this problem Google Charts uses <a href="http://code.google.com/apis/chart/formats.html#scaled_values">data scaling</a>, jsEasyCharts lets you do this using the "dataScaling" feature in the options object of the constructor.</p>
+<p>For example, if you wanted a chart using values that were under 100 and all close to each other, you could do this:</p>
+<pre><code>jsEasyCharts.line(
+	'line1',
+	[48,40,45,51,48,43],
+	{
+		dataScaling: {
+			top: 60,
+			bottom: 35
+		}
+	}
+);</code></pre>
+<p>Likewise, if you had values in your data that were over 100, you could do this:
+<pre><code>jsEasyCharts.line(
+	'line1',
+	[148,40,145,51,148,43],
+	{
+		dataScaling: {
+			top: 160,
+			bottom: 0
+		}
+	}
+);</code></pre>
+
+<h3>I want the chart to work on a secure page</h3>
+<p>You can use jsEasyCharts on a secure page by adding "https: true" to the options object of the constructor. For example:</p>
+<pre><code>jsEasyCharts.line(
+	'line1',
+	[80,15,45,11,70,55],
+	{
+		https: true
+	}
+);</code></pre>
+<p>Will give you a secure image to place on your page.</p>
+
+<h3>The labelling doesn't work when I have a large JSON object</h3>
+<p>This is a known <a href="http://code.google.com/p/jseasycharts/issues/detail?id=10">issue</a> that will be fixed, but in the mean time you can get around it by declaring your labels in the options object of the constructor.</p>
+
+<h3>Labels with non alpha-numeric characters break jsEasyCharts, how can I fix this?</h3>
+<p>If you want to use a non alpha-numeric character as a label in your chart, you will need to  write the character in as its escaped equivalent.</p>
+<p>For example, to use a plus sign in a label, you could write <code>%2B</code> instead of <code>+</code>. See <a href="http://www.escapecodes.info/">www.escapecodes.info</a> for a list of escaped non alpha-numeric characters.</p>
+
+
+</div><div class="round_bottom"></div>
+
+</div>
+
+<div id="footer">
+<p>jsEasyCharts, 2009</p>
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5819125-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

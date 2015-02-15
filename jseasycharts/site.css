@@ -1,0 +1,58 @@
+body {background: #f2edda url("img/bg_top.jpg") repeat-x top center; font-family: verdana,helvetica,arial,sans-serif; margin: 0; padding: 0;}
+div#column {margin: 2em auto 0; padding: 1em 1em 0; position: relative; width: 798px; z-index: 100;}
+
+h1 {font-size: 3em; font-weight: normal; margin: 10px 0;}
+h2, h3, p, li, td, dl {font-size: 80%;}
+h2, h3, p, pre, table, img {margin-bottom: 20px;}
+h2 {color: #dbc571; font-size: 1.5em; margin-top: 0; text-transform: uppercase}
+h3 {font-size: 1.3em; font-weight: normal;}
+dl, li, p {line-height: 1.5;}
+img {background: #fff; border: 10px solid #80bcd9; display: block; margin-bottom: 0; padding: 10px;}
+pre {border: none !important; padding: 0 !important;}
+a {border-bottom: 1px solid #aaa; color: #333; text-decoration: none;}
+a:hover {border-bottom: 1px solid #000;}
+a:visited {color: #111;}
+
+ul#nav {font-size: 0.8em; margin: -2em 0 0; padding: 0 1.2em 0 0; position: absolute; right: 0; top: 0;}
+ul#nav li {background: url("img/white_50pc_trans.png"); float: left; list-style-type: none; margin-left: 0.75em;}
+ul#nav li a {border: none; display: block; padding: 0.5em 1em;}
+ul#nav li a:hover {background: #fff; border: none;}
+ul#sub_nav {background: #fff; margin: 0; }
+
+dt {clear: left; font-weight: bold; float: left; margin-bottom: 10px; width: 130px;}
+dd {float: left; margin: 0 0 10px 0; width: 600px;}
+dl.options dd {margin: 10px 0 0 0; width: 470px;}
+dl.options dt {margin: 10px 0 0 0;}
+dl.constructor {overflow: hidden;}
+dl.options {font-size: 100%; overflow: hidden;}
+dl.options dd h4 {font-size: 1em; font-weight: normal; margin-bottom: 0;}
+dl.options dd pre {font-size: 1.2em; margin-top: 0;}
+.ie dl.options dd pre,
+.opera dl.options dd pre {font-size: 1em;}
+.ie pre.prettyprint,
+.opera pre.prettyprint {font-size: 0.9em;}
+.prettyprint {background: #eee !important; border-left: 10px solid #80BCD9 !important; padding: 0.5em !important;}
+table {border-collapse:collapse; border-top: 1px solid #999; border-left: 1px solid #999;}
+table td {border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 0.5em;}
+#tm-skip {clear: both;}
+div#mast {background: url("img/logo.png") no-repeat center; height: 222px; margin-bottom: 20px; text-align: center;}
+h1 {position: absolute; left: -10000px;}
+div#mast img {display: inline;}
+div#intro {background: url("img/intro_background.png") repeat-x bottom; font-size: 1.1em; overflow: hidden; padding: 0 1em 1em; zoom: 1;}
+.gca {font-weight: bold;}
+p#download {float: right; font-size: 0.6em; margin: 1.2em 0 1.2em 1.2em; text-align: center; width: 181px;}
+p#download a {background: url("img/download.png") no-repeat; background-position: 0 0; border-bottom: none; display: block; height: 66px; width: 181px;}
+p#download a:hover {background-position: 0 -67px; border-bottom: none;}
+p#download a span {position: absolute; left: -10000px}
+div.round_top {background: url("img/rounded_corners.png"); height: 10px; font-size: 10px; margin-top: 2em;}
+div.round_bottom {background: url("img/rounded_corners.png") 0 -6px; height: 10px; font-size: 10px;}
+div#faq,
+div#demos,
+div#more {background: url("img/white_90pc_trans.png"); padding: 0.2em 1em 2em;}
+div#demos div.section {margin-bottom: 2em; overflow: hidden; zoom: 1;}
+div#demos h2, div#demos h3 {margin-top: 0;}
+div#demos img {display: block; float: right; margin: 0 0 1em 3em;}
+div#demos ul {width: 50%;}
+div.chart_demo {background: url("img/white_90pc_trans.png"); padding: 0.2em 1em 2em; overflow: hidden; zoom: 1;}
+div#footer {background: #dec97b url(img/footer_bottom.png) repeat-x; margin-top: -330px; padding: 350px 0 20px; overflow: hidden; zoom: 1;}
+div#footer p {margin: 1em auto; width: 798px;}

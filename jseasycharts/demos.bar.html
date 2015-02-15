@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+
+<head profile="http://dublincore.org/documents/dcq-html/">
+<title>jsEasyCharts - Demos - Bar Charts</title>
+<meta name="description" content="jsEasyCharts is a JavaScript wrapper that allows you to easily place a Google Chart onto your page and access it via a simple API." />
+<meta name="keywords" content="Charts, JavaScript, Google Charts, jsEasyCharts, pie charts, line charts, bar charts" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<meta name="DCTERMS.created" content="2009-08-18T12:00:00Z" />
+<meta name="DCTERMS.modified" content="2009-08-18T12:35:00Z" />
+
+<!--[if IE]><![if gte IE 6]><![endif]-->
+<style type="text/css">
+ul#nav li#d {background: #fff; background-image: none;}
+ul#sub_nav li#b {font-weight: bold;}
+</style>
+<link rel="stylesheet" type="text/css" href="site.css" />
+<link rel="stylesheet" type="text/css" href="scripts/prettify.css" />
+<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="scripts/jseasycharts.dev.js"></script>
+<script type="text/javascript" src="scripts/demosPage.js"></script>
+<script type="text/javascript" src="scripts/prettify.js"></script>
+
+<!--[if IE]><![endif]><![endif]-->
+
+</head>
+<body>
+
+<div id="column">
+
+<div id="mast">
+<h1>jsEasyCharts</h1>
+</div>
+
+
+<ul id="nav">
+	<li id="home"><a href="index.html">Home</a></li>
+	<li id="d"><a href="demos.line.html">Demos</a></li>
+	<li id="download"><a href="http://code.google.com/p/jseasycharts/downloads/list">Download</a></li>
+	<li id="faq"><a href="faq.html">FAQs</a></li>
+</ul>
+
+
+<div class="round_top"></div>
+<ul id="sub_nav">
+	<li id="l"><a href="demos.line.html">Line Charts</a></li>
+	<li id="b"><a href="demos.bar.html">Bar Charts</a></li>
+	<li id="p"><a href="demos.pie.html">Pie Charts</a></li>
+	<li id="s"><a href="demos.sideBySide.html">Side-by-side Charts</a></li>
+</ul>
+<div class="round_bottom"></div>
+
+
+<!-- ********** -->
+<!-- BAR CHARTS -->
+<!-- ********** -->
+
+
+<div class="round_top"></div><div class="chart_demo">
+
+
+<h2 id="bar_charts">Bar Charts</h2>
+
+<h3>Constructor</h3>
+<pre class="prettyprint"><code>jsEasyCharts.bar(attachTo, dataSource, opts);</code></pre>
+<dl class="constructor">
+	<dt>attachTo</dt>
+	<dd>Type: DOM element | string<br />
+	Reference of an element on the page where you want the chart to be put.  This can be either a string dictating the id of the element or a reference to the element itself.</dd>
+	<dt>dataSource</dt>
+	<dd>Type: Array | JSON object | id of a table DOM element<br />
+	The data that you want to populate the chart with.  This can be an array/multi-dimensional array, a JSON object or a reference to a table element.</dd>
+	<dt>opts</dt>
+	<dd>Type: JSON object<br />
+	Optional configuration setting.
+	<dl class="options">
+		<dt>altText</dt>
+		<dd>Type: String<br />
+		Default: none<br />
+		The text to be placed in the alt attribute of the image tag.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		altText: 'Sales figures for this year'
+	}
+);</code></pre>
+
+		</dd>
+		<dt>axisLabels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for the values of your data.  These values go across the Y axis of the chart.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		axisLabels: ['high', 'average', 'low']
+	}
+);</code></pre>
+
+		</dd>
+		<dt>barSpacing</dt>
+		<dd>Type: number<br />
+		Default: none<br />
+		Specify the spacing between bars on the chart in pixels.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		barSpacing: 30,
+		barWidth: 40
+	}
+);</code></pre>
+
+		</dd>
+		<dt>barWidth</dt>
+		<dd>Type: number<br />
+		Default: none<br />
+		Specify the width of the bars on the chart in pixels.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		barSpacing: 30,
+		barWidth: 40
+	}
+);</code></pre>
+
+		</dd>
+		<dt>colour</dt>
+		<dd>Type: String<br />
+		Default: none<br />
+		The RGB value for the colour you want the lines in the chart to be.  To set multiple colours use a comma delimited list of RGB values (e.g. '99cc00,cc9900').
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		colour: '99cc00,cc9900'
+	}
+);</code></pre>
+
+		</dd>
+		<dt>dataScaling</dt>
+		<dd>Type: JSON OBJECT<br />
+		Default: none<br />
+		By default the values that you can enter range from 0 - 100. Google Charts will ignore any value you enter which is less than 0, and cap any values higher than 100 at 100. You can override this behaviour with the use of the dataScaling parameter in the options object.  Use the dataScaling option to specify a top and bottom value for your data to be scaled against (e.g. dataScaling: {top: 230, bottom: 120}.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		dataScaling: {
+			top: 230, 
+			bottom: 120
+		}
+	}
+);</code></pre>
+
+		</dd>
+		<dt>grouped</dt>
+		<dd>Type: boolean<br />
+		Default: false<br />
+		Set to true if your dataSource has multiple tracks of data that you want to group together.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	{
+		january: {
+				"Tom": 10,
+				"Jake": 20,
+				"Michael": 30
+		},
+		february: {
+				"Tom": 40,
+				"Jake": 50,
+				"Michael": 60
+		},
+		march: {
+				"Tom": 70,
+				"Jake": 80,
+				"Michael": 90
+		}
+	},
+	{
+		grouped: true
+	}
+);</code></pre>
+
+		</dd>
+		<dt>https</dt>
+		<dd>Type: boolean<br />
+		Default: false<br />
+		Set to true if you want an image that has a URL that starts with "https" and won't cause a security alert on a secure page.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		https: true
+	}
+);</code></pre>
+
+		</dd>
+		<dt>labels</dt>
+		<dd>Type: String[]<br />
+		Default: none<br />
+		Values to use as the labels for your data.  These values go across the X axis of the chart.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[20,16,33],
+	{
+		labels: ['Lib Dem', 'Lab', 'Con']
+	}
+);</code></pre>
+
+		</dd>
+		<dt>legend</dt>
+		<dd>Type: string<br />
+		Default: none<br />
+		A comma delimited list of values to display in a legend.  The legend will use any colour values passed in via the colour parameter in the options object.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[20,16,33],
+	{
+		colour: '99cc00,cc9900,00cc99',
+		legend: 'Lib Dem, Lab, Con'
+	}
+);</code></pre>
+
+		</dd>
+		<dt>showAxisLabels</dt>
+		<dd>Type: boolean<br />
+		Default: true<br />
+		Set to false if your dataSource has data for axisLabels but you do not want them to be shown in the chart.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	'tableId8',
+	{
+		showAxisLabels: true
+	}
+);</code></pre>
+
+		</dd>
+		<dt>showLabels</dt>
+		<dd>Type: boolean<br />
+		Default: true<br />
+		Set to false if your dataSource has data for labels but you do not want them to be shown in the chart.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	'tableId8',
+	{
+		showLabels: true
+	}
+);</code></pre>
+
+		</dd>
+		<dt>size</dt>
+		<dd>Type: string<br />
+		Default: '100x100'<br />
+		'x' delimited values for the height and width of the chart.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		size: '200x150'
+	}
+);</code></pre>
+
+		</dd>
+		<dt>type</dt>
+		<dd>Type: string<br />
+		Default: 'horizontal'<br />
+		Set to 'vertical' if you want a vertical bar chart, otherwise leave empty or set to 'horizontal' for a horizontal bar chart.
+		<h4>Example</h4>
+
+<pre class="prettyprint"><code>jsEasyCharts.bar(
+	'bar1',
+	[60,40,10],
+	{
+		type: 'vertical'
+	}
+);</code></pre>
+
+		</dd>
+	</dl>
+	</dd>
+</dl>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="basic_bar_chart">Basic bar chart</h3>
+<p>You can use the API with very minimal settings. You can create a chart with just a reference to a parent element and an array of values, like so:</p>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar1',
+	[60,40,10]
+);</code></pre>
+<div id="bar1"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="setting_data_with_json_sizing_and_colouring_bar">Setting data with JSON, sizing and colouring</h3>
+<p>As well as defining the data for the chart as an array, you can also pass in a JSON object. If you do this, the labels in the JSON object will be used in the chart.  Note that if labels are supplied for the chart, then axis labels will be added also.</p>
+<p>A third optional param in the method call is an options object.  Here you can set the size and colouring of the chart.</p>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar4',
+	{
+		Apricots: 10,
+		Walnuts: 20,
+		Hazelnut: 30,
+		Almond: 40
+	},
+	{
+		colour: 'ff0000',
+		size: '110x110'
+	}
+);</code></pre>
+<div id="bar4"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="defining_labels_and_setting_data_with_a_table_bar">Defining labels and setting data with a HTML table</h3>
+<p>You can define the data for the chart using a (2 row/column only) table.  The options object also allows you to override the labels (from the data source) and set axis labels for the chart.</p>
+<table id="dataBar3">
+	<tr>
+		<td>Conservative</td>
+		<td>33</td>
+	</tr>
+	<tr>
+		<td>Labour</td>
+		<td>16</td>
+	</tr>
+	<tr>
+		<td>Liberal Democrates</td>
+		<td>20</td>
+	</tr>
+</table>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar3',
+	'dataBar3',
+	{
+		type: 'horizontal',
+		size: '200x120',
+		labels: ['Lib Dem', 'Lab', 'Con'],
+		axisLabels: ['0%', '25%', '50%', '75%', '100%']
+	}
+);</code></pre>
+<div id="bar3"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="vertical_bar_charts">Vertical bar chart</h3>
+<p>The third param in the method call is an options object. Here you can set the type of chart and also the width and spacing of the bars. Setting the width and spacing of the bars is useful if the labels are wider than the bars.</p>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar2',
+	{
+		Apricots: 10,
+		Walnuts: 20,
+		Hazelnut: 30,
+		Almond: 40
+	},
+	{
+		type: 'vertical',
+		size: '450x200',
+		barWidth: 20,
+		barSpacing: 30
+	}
+);</code></pre>
+<div id="bar2"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="data_scaling_a_bar_chart">Data scaling a bar chart</h3>
+<p>By default the values that you can enter range from 0 - 100.  Google Charts will ignore any value you enter which is less than 0, and cap any values higher than 100 at 100.  You can override this behaviour with the use of the dataScaling parameter in the options object.</p>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar5',
+	{
+		November: 80,
+		December: -70,
+		January: 120,
+		Febuary: -40
+	},
+	{
+		type: 'vertical',
+		size: '250x300',
+		barWidth: 50,
+		barSpacing: 5,
+		dataScaling: {
+			top: 140, 
+			bottom: -80
+		},
+		axisLabels: ['-80', '-60', '-40', '-20', '0', '20', 
+			    '40', '60', '80', '100', '120', '140']
+	}
+);</code></pre>
+<div id="bar5"></div>
+
+
+</div><div class="round_bottom"></div><div class="round_top"></div><div class="chart_demo">
+
+
+<h3 id="multiple_data_tracks_with_a_json_object_in_a_bar_chart">Multiple data tracks with a JSON object in a bar chart</h3>
+<p>You can define more than one track of data by passing in a JSON object with multiple sub JSON objects. You can then set the colour of each track by passing in a list of comma seperated RGB values into the colour param of the options object.  By default the bar chart will think multiple tracks are to be rendered together in a single bar...</p>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar6',
+	{
+		january: {
+			"Tom": 10,
+			"Jake": 20,
+			"Michael": 30
+		},
+		february: {
+			"Tom": 40,
+			"Jake": 50,
+			"Michael": 60
+		},
+		march: {
+			"Tom": 70,
+			"Jake": 80,
+			"Michael": 90
+		}
+	},
+	{
+		size: '400x120',
+		colour: '99cc00,cc9900,0099cc'
+	}
+);</code></pre>
+<div id="bar6"></div>
+
+<p>... however if you want multiple tracks to appear seperately, you can.  Set the param 'grouped' to 'true' in the options parameter.  You can also give the chart a legend, so users know what multiple tracks relate to. Add the param "legend" to the options object, give it the value of a comma or pipe seperated list.</p>
+<pre class="prettyprint"><code class="parse">jsEasyCharts.bar(
+	'bar7',
+	{
+		january: {
+			"Tom": 10,
+			"Jake": 20,
+			"Michael": 30
+		},
+		february: {
+			"Tom": 40,
+			"Jake": 50,
+			"Michael": 60
+		},
+		march: {
+			"Tom": 70,
+			"Jake": 80,
+			"Michael": 90
+		}
+	},
+	{
+		type: 'vertical',
+		grouped: true,
+		size: '350x300',
+		colour: '99cc00,cc9900,0099cc',
+		legend: 'Tom,Jake,Michael'
+	}
+);</code></pre>
+<div id="bar7"></div>
+
+</div><div class="round_bottom"></div>
+
+
+
+</div>
+
+<div id="footer">
+<p>jsEasyCharts, 2009</p>
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5819125-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

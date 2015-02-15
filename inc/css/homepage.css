@@ -1,0 +1,39 @@
+﻿body {background: #000; font-family: candara; margin: 0;}
+a {color: #e7482b; text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+.content {background: url(../img/top.jpg) #7898b1 no-repeat; margin: 0 auto; overflow: hidden; position: relative; width: 960px; zoom: 1;}
+
+h1 {margin: 0; text-align: center;}
+
+.contact {right: 0; margin: 10px; padding: 0; position: absolute; top: 0;}
+.contact li {float: left; list-style: none; margin-left: 10px;}
+.contact li a {color: #fff;}
+
+.main {}
+
+.intro {margin: 40px 0; overflow: hidden; zoom: 1;}
+.intro div {display: inline; float: left; margin-left: 32px; overflow: hidden; width: 432px; zoom: 1;}
+.intro div p {margin: 0 0 10px;}
+
+.promos {overflow: hidden; width: 728px; zoom: 1;}
+
+.promos .column {float: left;}
+
+.promos .column div {-moz-border-radius: 5px; background: rgba(0,0,0,0.75); border-radius: 5px; margin: 0 0 32px 32px; overflow: hidden; padding: 0 10px 10px 10px; position: relative; width: 180px; zoom: 1;}
+.promos .column div.break {clear: left;}
+.promos .column div img {position: absolute; top: 10px;}
+.promos .column div h2 {font-family: cambria; font-size: 1em; margin: 117px 0 5px; position: relative;}
+.promos .column div p {color: #fff; margin: 0;}
+
+.links {background: url(../img/dragon.gif) #e7482b no-repeat 512px 32px; color: #fff; overflow: hidden; zoom: 1;}
+.links .column h2 {font-size: 3em; font-weight: normal; line-height: 1; margin: 32px 0 0 32px; width: 392px;}
+.links .delicious-posts ul {margin: 0 0 32px; overflow: hidden; padding: 0; zoom: 1;}
+.links .column .delicious-post {display: inline; margin-top: 32px; width: 430px;}
+.links .column .delicious-odd {clear: left; float: left; margin-left: 32px;}
+.links .column .delicious-even {clear: right; float: right; margin-right: 32px;}
+.links .column .delicious-post .delicious-link {display: block; font-family: cambria; font-size: 1em;}
+.links .column a {color: #fff;}
+
+.footer {background: url(../img/bottom.png) #162232 no-repeat bottom; color: #fff; height: 500px; overflow: hidden; text-align: center; zoom: 1;}
+.footer p {margin-top: 245px;}
